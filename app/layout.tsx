@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-
+import { Toaster } from "sonner";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "900"],
   subsets: ["latin"],
@@ -44,6 +44,7 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="insightify-theme"
           >
+            <Toaster position="bottom-center" />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
