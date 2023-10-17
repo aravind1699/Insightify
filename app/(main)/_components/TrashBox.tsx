@@ -25,7 +25,7 @@ const TrashBox = () => {
   });
 
   const onClick = (documentId: string) => {
-    router.push(`/documents/${documentId}`);
+    router.push(`/document/${documentId}`);
   };
 
   const onRestore = (
@@ -51,7 +51,7 @@ const TrashBox = () => {
       error: "Failed to delete note.",
     });
     if (params.documentId === documentId) {
-      router.push("/documents");
+      router.push("/document");
     }
   };
 

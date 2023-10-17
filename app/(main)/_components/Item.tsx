@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import {
   DropdownMenu,
@@ -47,6 +47,7 @@ const Item = ({
   onExpand,
   expanded,
 }: ItemProps) => {
+  const params = useParams();
   const { user } = useUser();
   const router = useRouter();
   const create = useMutation(api.documents.create);
@@ -56,6 +57,9 @@ const Item = ({
     event.stopPropagation();
     if (!id) return;
     const promise = archieve({ id });
+    if (params.documentId === id) {
+      router.push("/document");
+    }
     toast.promise(promise, {
       loading: "Moving to trash...",
       success: "Note moved to trash!",
