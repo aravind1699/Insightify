@@ -42,7 +42,7 @@ const Navbar = () => {
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Insightify</Link>
+              <Link href="/document">Enter Insightify</Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>
